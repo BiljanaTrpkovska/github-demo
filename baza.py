@@ -1,0 +1,27 @@
+# ORM = Object Relational Mapping
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import String, Integer, create_engine
+
+engine = create_engine("sqlite:///baza.db")
+
+class Base(DeclarativeBase):
+        pass
+
+# CREATE TABLE users_table(
+#   id INT PRIMARY KEY,
+#   name VARCHAR(50) NOT NULL,
+#   email VARCHAR(50) NOT NULL)
+class Users(Base):
+    __tablename__ = "users_table"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(50))
+    email: Mapped[str] = mapped_column(String(50))
+
+class Products(Base):
+    __tablename__ = "products"
+    id: Mapped[int]=mapped_column(primary_key=True)
+    product_name: Mapped[str] = mapped_column(String(50))
+    quantity: Mapped[int] = mapped_column(Integer())
+    price: Mapped[int] = mapped_column(Integer())
+
+Base.metadata.create_all(engine)

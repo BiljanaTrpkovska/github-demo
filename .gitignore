@@ -1,0 +1,4 @@
+baza.db
+*.db
+*.csv
+_pycache_/
