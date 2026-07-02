@@ -1,4 +1,4 @@
 baza.db
 *.db
 *.csv
-_pycache_/
+__pycache__/

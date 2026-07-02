@@ -56,5 +56,6 @@ with Session(engine) as session:
     print(users_delete)
     result = session.execute(users_delete)
     session.commit()
+    print("Nova poraka")
     
 
